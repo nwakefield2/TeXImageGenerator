@@ -1,0 +1,43 @@
+\documentclass[preview]{standalone}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\begin{document}
+
+% These are the parameters that will be randomized
+%  They can be named anything, and there can be any number of them
+\newcommand\inputzero{0} % 0, 1, 2, 3
+\newcommand\outputzero{6} % 6, 7, 8
+\newcommand\function{0} % 0, 1
+
+% These parameters are calculated based on the randomized values
+\pgfmathtruncatemacro\inputone{\inputzero+1}
+\pgfmathtruncatemacro\inputtwo{\inputzero+1+\function}
+\pgfmathtruncatemacro\inputthree{\inputzero+2+\function}
+\pgfmathtruncatemacro\outputone{\outputzero+3}
+\pgfmathtruncatemacro\outputtwo{\outputzero+3+(1-\function)}
+\pgfmathtruncatemacro\outputthree{\outputzero+5+(1-\function)}
+
+% Statement of the problem begins here
+%  This is standard LaTeX code using the variables defined above
+Consider the following table of values.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+	\hline
+	$x$ & \inputzero & \inputone & \inputtwo & \inputthree \\
+	\hline
+	$f(x)$ & \outputzero & \outputone & \outputtwo & \outputthree \\
+	\hline
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[a)]
+	\setlength\itemsep{1em}
+	\item Can you conclude that $f(\inputzero)=\outputzero$? Clearly explain your reasoning in a few sentences.
+	\item Can you conclude that $f(\outputthree)=\inputthree$? Clearly explain your reasoning in a few sentences.
+	\item Does the table above represent a function? Clearly explain your reasoning in a few sentences.
+\end{enumerate}
+
+\end{document}
