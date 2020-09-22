@@ -89,8 +89,11 @@ class ImageGUI:
 
         input_base = input_filename.split('.')[0]
 
-        os.mkdir(os.path.join(_LOCATION,'temp'))
-        os.mkdir(os.path.join(_LOCATION,input_base))
+        if not os.path.exists(os.path.join(_LOCATION,'temp')):
+        	os.mkdir(os.path.join(_LOCATION,'temp'))
+        	
+        if not os.path.exists(os.path.join(_LOCATION,input_base)):
+        	os.mkdir(os.path.join(_LOCATION,input_base))
 
         with open(os.path.join(_LOCATION,input_filename),'r') as f:
             filename_base = input_filename.split('.')[0]
